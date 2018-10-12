@@ -73,6 +73,13 @@ function resetCounter() {
 function HiddenInformation() {
   if (userType >= 2) {
     // DO SOMETHING
+    var coll = document.getElementsByClassName("collapsible");
+    for (var i = 1; i < coll.length; i++) {
+      thiz = coll[i];
+      coll[i].classList.toggle("active");
+      var content = thiz.nextElementSibling;
+      content.style.display = "none";
+    }
     console.log("Hidden Information");
   } else {
     return;
@@ -82,7 +89,15 @@ function ExpendableInputs() {
   if (userType >= 1) {
     // DO SOMETHING
     console.log("Expendable Inputs");
-  } else return;
+    docu = document.getElementsByClassName("calculator");
+    for (var i = 0; i < docu.length; i++) {
+      docu[i].style.display = "none";
+    }
+
+  } else {
+    elmt = document.getElementById("expendCalculator");
+    elmt.style.display = "none";
+    return;}
 };
 function Popovers() {
   if (userType >= 2) {
@@ -159,9 +174,44 @@ if (userType === 2 || userType === 4) {
 
 // HiddenInformation Functions
 
+var coll = document.getElementsByClassName("collapsible");
+
+for (var i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+}
+
 // ExpendableInputs Functions
 
+function expendCalculator() {
+  col = document.getElementsByClassName("calculator");
+  for (var i = 0; i < col.length; i++){
+
+    if (col[i].style.display === 'block') {
+      col[i].style.display = 'none';
+      document.getElementById("expendCalculator").textContent= "Show Calculator";
+    }
+    else {
+      col[i].style.display='block';
+      document.getElementById("expendCalculator").textContent = "Hide Calculator";}
+  }
+  if (userType < 2) {
+document.getElementById("PopoverButton").style.display = 'none';
+}
+}
+
 // Popoevers Functions
+
+function myPopover() {
+    alert("Please input two binary numbers and clicks calculate!");
+}
 
 // InputHints Functions
 
@@ -176,6 +226,10 @@ if (userType === 2 || userType === 4) {
 // CompletenessMeter Functions
 
 // FeaturedContent Functions
+
+// Event Listeners
+
+
 
 // Load Event Listener
 

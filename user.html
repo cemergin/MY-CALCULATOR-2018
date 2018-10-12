@@ -8,16 +8,46 @@
   </head>
   <body>
   <h1>Binary Calculator</h1>
-<div>
 
+<div class="card"><button class="collapsible">Calculate</button>
+    <div class="content">
+      <p>The binary system is a numerical system that functions virtually identically to the decimal number system that people are likely more familiar with. While the decimal number system uses the number 10 as its base, the binary system uses 2. Furthermore, although the decimal system uses the digits 0 through 9, the binary system uses only 0 and 1, and each digit is referred to as a bit. Apart from these differences, operations such as addition, subtraction, multiplication, and division are all computed following the same rules as the decimal system.</p>
+
+      <!-- Text Content Directly Taken From https://www.calculator.net/binary-calculator.html?b2dnumber1=10101010&calctype=b2d&x=61&y=3#binary2decimal -->
+
+      <button id="expendCalculator" type="button" onclick="expendCalculator()">Show Calculator</button>
+
+      <br>
+      <br>
+
+      <input class="calculator" id="bin1" type="text">
+
+      <select class="calculator" id="selector">
+        <option value="+" selected="">+</option>
+        <option value="-">-</option>
+        <option value="x">×</option>
+        <option value="/">÷</option>
+      </select>
+
+      <input class="calculator" id="bin2" type="text">
+      <button class="calculator" type="button" onclick="">Calculate</button>
+      <button class="calculator" id="PopoverButton" type="button" style="display: none" onclick="myPopover()">Input Help</button>
+    </div>
+
+  </div>
+
+<div class="card"><button class="collapsible">Binary System</button>
+  <div class="content">
+    <p>The binary system is a numerical system that functions virtually identically to the decimal number system that people are likely more familiar with. While the decimal number system uses the number 10 as its base, the binary system uses 2. Furthermore, although the decimal system uses the digits 0 through 9, the binary system uses only 0 and 1, and each digit is referred to as a bit. Apart from these differences, operations such as addition, subtraction, multiplication, and division are all computed following the same rules as the decimal system.</p>
+  </div>
+     <!-- Text Content Directly Taken From https://www.calculator.net/binary-calculator.html?b2dnumber1=10101010&calctype=b2d&x=61&y=3#binary2decimal -->
 </div>
 
-<div>
-
-</div>
-
-<div>
-
+<div class="card"><button class="collapsible">Binary Operations</button>
+  <div class="content">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <!-- Text Created with https://www.lipsum.com/ -->
+  </div>
 </div>
 
 <footer>
