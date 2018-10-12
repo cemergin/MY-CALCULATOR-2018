@@ -2,12 +2,21 @@
 
 function calculateButtonClicked() {
   myNoHint();
+  removeCoachMark();
   a = parseInput(getBin1());
+  console.log("A " + a);
   b = parseInput(getBin2());
+  console.log("B " + b);
+  if (isNaN(a)|| isNaN(b)) {
+    console.log("Incorrect Input");
+    alert("Incorrect Input! Your input should be consisted of 0s and 1s only");
+    document.getElementById("result").innerHTML = ""
+   }
+  else {
   c = selecta(a,b);
   d = (c >>> 0).toString(2);
   console.log(d);
-  document.getElementById("result").innerHTML = "Binary Result: " + d + " // " + "Decimal Result " + c;
+  document.getElementById("result").innerHTML = "Binary Result: " + d + " // " + "Decimal Result " + c;}
 }
 
 function selecta(a,b) {
@@ -180,27 +189,32 @@ function InputHints() {
 };
 function OverflowMenus() {
   if (userType >= 4) {
-    // DO SOMETHING
+    oth = document.getElementsByClassName("other");
+    for (var i = 0; i < oth.length; i++) {
+      oth[i].style.display = "none";
+    }
+    document.getElementById("moreInfo").style.display = "block";
     console.log("Overflow Menus");
   } else
  {return;
  }
 }
 function Wizard(){
-  if (userType === 0 || userType === 1|| userType === 3) {
-    // DO SOMETHING
-    console.log("Wizard");
-  } else {
-    return;
-  }
+    if (userType === 0 || userType === 1|| userType === 3) {
+      // DO SOMETHING
+      document.getElementById("convertButton").style.display = "block";
+      console.log("Wizard");
+    } else {
+      return;
+    }
 }
 function CoachMarks() {
   if (userType === 0)
-  {
-    // DO SOMETHING
-    console.log("Coach Marks");
-  } else {
-    return;
+    {
+      initialCoachMark();
+      console.log("Coach Marks");
+    } else {
+      return;
   }
 };
 function DefaultValue() {
@@ -227,19 +241,19 @@ function FeaturedContent() {
  }
 };
 function NextSteps() {
-if (userType === 2 || userType === 4) {
-  // DO SOMETHING
-  console.log("Next Steps");
-} else {
-  return;
-}
+  if (userType === 2 || userType === 4) {
+    // DO SOMETHING
+    console.log("Next Steps");
+  } else {
+      return;
+    }
 };
 
 // HiddenInformation Functions
 
 var coll = document.getElementsByClassName("collapsible");
 
-for (var i = 0; i < coll.length; i++) {
+  for (var i = 0; i < coll.length; i++) {
   coll[i].addEventListener("click", function() {
     this.classList.toggle("active");
     var content = this.nextElementSibling;
@@ -286,13 +300,67 @@ function myNoHint() {
 	document.getElementById("inputhint").innerHTML = " ";
 }
 
-
-
 // OverflowMenus Functions
+
+function expendOthers() {
+    oth = document.getElementsByClassName("other");
+    for (var i = 0; i < oth.length; i++) {
+      oth[i].style.display = "block";
+    }
+    document.getElementById("moreInfo").style.display = "none";
+}
 
 // Wizard Functions
 
+function expendWizard()
+ {
+   var coli= document.getElementById("converter");
+   if (coli.style.display === 'block') {
+     coli.style.display = 'none';
+   } else {
+    coli.style.display = 'block';}
+ }
+
+function convertDecimal(){
+  var deci = document.getElementById("bin3");
+  var bina = document.getElementById("bin4");
+  console.log(deci.value);
+  c = deci.value;
+  bina.value = (c >>> 0).toString(2);
+  console.log(bina.value);
+}
+
 // CoachMarks Functions
+
+function initialCoachMark() {
+  if (userType === 0) {
+  document.getElementById('step1').style.display='block';
+  document.getElementById('step2').style.display='none';
+  document.getElementById('step3').style.display='none';
+}
+}
+
+function keyOnInput1() {
+    if (userType === 0) {
+  document.getElementById('step1').style.display='none';
+	document.getElementById('step2').style.display='block';
+  document.getElementById('step3').style.display='none';
+}
+}
+
+function keyOnInput2() {
+  if (userType === 0) {
+  document.getElementById('step1').style.display='none';
+	document.getElementById('step2').style.display='none';
+  document.getElementById('step3').style.display='block';
+}
+}
+
+function removeCoachMark() {
+  document.getElementById('step1').style.display='none';
+	document.getElementById('step2').style.display='none';
+  document.getElementById('step3').style.display='none';
+}
 
 // DefaultValue Functions
 
@@ -301,8 +369,6 @@ function myNoHint() {
 // FeaturedContent Functions
 
 // Event Listeners
-
-
 
 // Load Event Listener
 

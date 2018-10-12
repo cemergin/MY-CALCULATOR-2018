@@ -36,6 +36,14 @@ footer {
   margin-bottom: 1%;
 }
 
+.converter{
+  display:flex;
+  flex-direction: column;
+  text-align:center;
+  padding: 0px 18px;
+  height: %3;
+}
+
 .visit {
   font-size: 8px;
   font-family: 'Aldrich', sans-serif;
