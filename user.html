@@ -30,8 +30,12 @@
       </select>
 
       <input class="calculator" id="bin2" type="text">
-      <button class="calculator" type="button" onclick="">Calculate</button>
+      <button class="calculator" type="button" onclick="calculateButtonClicked()">Calculate</button>
       <button class="calculator" id="PopoverButton" type="button" style="display: none" onclick="myPopover()">Input Help</button>
+      <p id="inputhint">
+      </p>
+      <p id="result">
+      </p>
     </div>
 
   </div>
@@ -50,12 +54,10 @@
   </div>
 </div>
 
-<footer>
-<p>User Type</p>
-<p class="visit" id="visitcount"> <p>
-<p class="visit" id="visitdate"> <p>
-<p class="visit" id="visitortype"><p>
-</footer>
+<div><button class="collapsible">User Type</button>
+  <div class=content><p class="visit" id="visitcount"> <p><p class="visit" id="visitdate"> <p><p class="visit" id="visitortype"><p>
+  </div>
+</div>
 
 <script type="text/javascript" src="user.js"></script>
 

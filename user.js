@@ -1,3 +1,61 @@
+// Calculation Related functions
+
+function calculateButtonClicked() {
+  myNoHint();
+  a = parseInput(getBin1());
+  b = parseInput(getBin2());
+  c = selecta(a,b);
+  d = (c >>> 0).toString(2);
+  console.log(d);
+  document.getElementById("result").innerHTML = "Binary Result: " + d + " // " + "Decimal Result " + c;
+}
+
+function selecta(a,b) {
+  c = getSelector();
+  switch (c) {
+    case "+":
+    return (a + b);
+    break;
+    case "-":
+    return (a - b);
+    break;
+    case "x":
+    return (a * b);
+    break;
+    case "/":
+    return (a / b);
+    break;
+    default:
+    return (a + b);
+  }
+
+}
+function getBin1() {
+  return document.getElementById("bin1").value;
+};
+function getBin2() {
+  return document.getElementById("bin2").value;
+};
+function getSelector() {
+  return document.getElementById("selector").value;
+};
+
+function checkInput(str) {
+  for(var i = str.length-1; i>=0; i--){
+    if ((str.charAt(i) !== '0') && (str.charAt(i) !== '1')) {
+      return false;
+    }
+  }
+  return true;
+}
+
+function parseInput(str) {
+  if (checkInput(str)) {
+    return parseInt(str, 2);
+  } else {
+  return NaN;}
+};
+
 // User Related Functions
 
 var userType = 0
@@ -109,7 +167,12 @@ function Popovers() {
 };
 function InputHints() {
   if (userType === 0 || userType === 1|| userType === 3) {
-    // DO SOMETHING
+    document.getElementById("bin1").addEventListener("mouseover", function() {
+      myHint();
+    });
+    document.getElementById("bin2").addEventListener("mouseover", function() {
+      myHint();
+    });
     console.log("Input Hints");
   } else {
     return;
@@ -210,10 +273,20 @@ document.getElementById("PopoverButton").style.display = 'none';
 // Popoevers Functions
 
 function myPopover() {
-    alert("Please input two binary numbers and clicks calculate!");
+    alert("Please input two binary numbers and click to calculate!");
 }
 
 // InputHints Functions
+
+function myHint() {
+	document.getElementById("inputhint").innerHTML = "Input should look something like 101011";
+}
+
+function myNoHint() {
+	document.getElementById("inputhint").innerHTML = " ";
+}
+
+
 
 // OverflowMenus Functions
 
