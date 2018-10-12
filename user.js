@@ -59,10 +59,10 @@ function checkInput(str) {
 }
 
 function parseInput(str) {
-  if (checkInput(str)) {
-    return parseInt(str, 2);
-  } else {
-  return NaN;}
+    if (checkInput(str)) {
+      return parseInt(str, 2);
+    } else {
+    return NaN;}
 };
 
 // User Related Functions
