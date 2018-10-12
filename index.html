@@ -3,8 +3,49 @@
   <head>
     <meta charset="utf-8">
     <title>Binary Calculator</title>
+    <link href="https://fonts.googleapis.com/css?family=Aldrich" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css">
   </head>
   <body>
-Hello World!
+
+<div class="navbar">
+    <h1>Binary Calculator</h1>
+</div>
+
+<button class="collapsible">Calculate</button>
+<div class="content">
+<p>Use the following calculators to perform the addition, subtraction, multiplication, or division of two binary values, as well as convert binary values to decimal values, and vice versa. Please note that due to the limitations of computer precision, this calculator can only take binary values up to 32 bits, or decimal values up to 10 digits.</p>
+<div align="center" font-size=30px>
+<input type="text" name="number1" maxlength="32" id="number1" value="10101010" class="textinput">
+<select name="c2op" id="c2op">
+  <option value="+" selected="">+</option>
+  <option value="-">-</option>
+  <option value="x">×</option>
+  <option value="/">÷</option>
+</select>
+	<input type="text" name="number2" maxlength="32" id="number2" value="11001100" class="textinput">
+<button id="inputbutton" type="button" onclick="myFunction()" style="display:none">Submit</button>
+  <br>
+  <br>
+  <p>
+    <progress max="100" value="0"></progress >
+  </p>
+
+  <br>
+</div>
+</div>
+
+<button class="collapsible">Binary System</button>
+<div class="content">
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+</div>
+
+<button class="collapsible">Binary Operations</button>
+<div class="content">
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+</div>
+
+<script type="text/javascript" src="calculator.js"></script>
+
   </body>
 </html>
