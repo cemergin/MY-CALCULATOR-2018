@@ -3,8 +3,57 @@
   <head>
     <meta charset="utf-8">
     <title>Binary Calculator</title>
+    <link href="https://fonts.googleapis.com/css?family=Aldrich" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css">
   </head>
   <body>
-Hello World!
-  </body>
+<h1>Binary Calculator</h1>
+
+<div class="card"><button class="collapsible">Calculate</button>
+<div class="content" id="calc">
+  <p>Use the following calculators to perform the addition, subtraction, multiplication, or division of two binary values, as well as convert binary values to decimal values, and vice versa. Please note that due to the limitations of computer precision, this calculator can only take binary values up to 32 bits, or decimal values up to 10 digits.</p>
+
+  <!-- Text Content Directly Taken From https://www.calculator.net/binary-calculator.html?b2dnumber1=10101010&calctype=b2d&x=61&y=3#binary2decimal -->
+
+
+  <button id="expendCalculator" type="button" onclick="expendCalculator()">Show Calculator</button>
+
+  <input class="calculator" id="bin1" type="text">
+
+  <select class="calculator" id="selector" style="display:none">
+    <option value="+" selected="">+</option>
+    <option value="-">-</option>
+    <option value="x">×</option>
+    <option value="/">÷</option>
+  </select>
+
+  <input class="calculator" id="bin2" type="text">
+  <div class="buttons">
+  <button class="calculator"  id="inputbutton" type="button" onclick="myFunction()">Calculate</button>
+  <button class="calculator"  id="inputbutton" type="button" onclick="myFunction()">Input Help</button>
+  </div>
+  <p id="inputhint" style="display: none">
+    Input a value consisted of 1s and 0s such as 0011!
+  </p>
+</div>
+</div>
+
+<div class="card"><button class="collapsible">Binary System</button>
+  <div class="content">
+    <p>The binary system is a numerical system that functions virtually identically to the decimal number system that people are likely more familiar with. While the decimal number system uses the number 10 as its base, the binary system uses 2. Furthermore, although the decimal system uses the digits 0 through 9, the binary system uses only 0 and 1, and each digit is referred to as a bit. Apart from these differences, operations such as addition, subtraction, multiplication, and division are all computed following the same rules as the decimal system.</p>
+  </div>
+     <!-- Text Content Directly Taken From https://www.calculator.net/binary-calculator.html?b2dnumber1=10101010&calctype=b2d&x=61&y=3#binary2decimal -->
+</div>
+
+<div class="card"><button class="collapsible">Binary Operations</button>
+  <div class="content">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+  </div>
+</div>
+
+<p id="result"><p>
+
+<script type="text/javascript" src="calculator.js"></script>
+
+</body>
 </html>
