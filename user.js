@@ -16,7 +16,12 @@ function calculateButtonClicked() {
   c = selecta(a,b);
   d = (c >>> 0).toString(2);
   console.log(d);
+  prog =  document.getElementById("progressbar")
+  if (prog.value>60) {
+  document.getElementById("progressbar").value = 100;
+  }
   document.getElementById("result").innerHTML = "Binary Result: " + d + " // " + "Decimal Result " + c;}
+  recordInputs();
 }
 
 function selecta(a,b) {
@@ -220,13 +225,16 @@ function CoachMarks() {
 function DefaultValue() {
   if (userType >= 2) {
     // DO SOMETHING
+    loadPreviousInputs()
     console.log("Default Value");
   } else {
   return;}
 };
 function CompletenessMeter() {
+  document.getElementById("progressbar").style.display = 'none';
   if (userType >= 2) {
-    // DO SOMETHINS
+    // DO SOMETHING
+    // document.getElementById("progressbar").style.display = 'block';
     console.log("Completeness Meter");
   } else {
     return;
@@ -277,10 +285,12 @@ function expendCalculator() {
     }
     else {
       col[i].style.display='block';
-      document.getElementById("expendCalculator").textContent = "Hide Calculator";}
+      document.getElementById("expendCalculator").textContent = "Hide Calculator";
+      document.getElementById("progressbar").value = '0';};
   }
   if (userType < 2) {
-document.getElementById("PopoverButton").style.display = 'none';
+    document.getElementById("PopoverButton").style.display = 'none';
+    document.getElementById("progressbar").style.display = 'none';
 }
 }
 
@@ -333,11 +343,11 @@ function convertDecimal(){
 // CoachMarks Functions
 
 function initialCoachMark() {
-  if (userType === 0) {
-  document.getElementById('step1').style.display='block';
-  document.getElementById('step2').style.display='none';
-  document.getElementById('step3').style.display='none';
-}
+    if (userType === 0) {
+    document.getElementById('step1').style.display='block';
+    document.getElementById('step2').style.display='none';
+    document.getElementById('step3').style.display='none';
+  }
 }
 
 function keyOnInput1() {
@@ -345,7 +355,13 @@ function keyOnInput1() {
   document.getElementById('step1').style.display='none';
 	document.getElementById('step2').style.display='block';
   document.getElementById('step3').style.display='none';
-}
+  } else
+      {
+        prog =  document.getElementById("progressbar");
+        if (prog.value<30) {
+        document.getElementById("progressbar").value = 33;
+        }
+      }
 }
 
 function keyOnInput2() {
@@ -353,7 +369,13 @@ function keyOnInput2() {
   document.getElementById('step1').style.display='none';
 	document.getElementById('step2').style.display='none';
   document.getElementById('step3').style.display='block';
-}
+  } else
+      {
+        prog =  document.getElementById("progressbar");
+        if (prog.value>30) {
+        document.getElementById("progressbar").value = 66;
+        }
+      }
 }
 
 function removeCoachMark() {
@@ -363,6 +385,32 @@ function removeCoachMark() {
 }
 
 // DefaultValue Functions
+
+function recordInputs() {
+  if(typeof(Storage) !== "undefined") {
+        var num1= Number(getBin1());
+        var num2= Number(getBin2());
+        var opp= String(getSelector());
+        localStorage.previousInput1 = num1;
+        localStorage.previousInput2 = num2;
+        localStorage.previousOpp = opp;
+      console.log("Previous Inputs: " + localStorage.previousInput1 + " " + localStorage.previousOpp + " " + localStorage.previousInput2 );
+  } else {
+      console.log ("Your browser does not support web storage...");
+  }
+}
+
+function loadPreviousInputs() {
+  if(typeof(Storage) !== "undefined") {
+    if ((localStorage.previousInput1) && (localStorage.previousInput2)) {
+      document.getElementById("bin1").value = localStorage.previousInput1;
+      document.getElementById("bin2").value = localStorage.previousInput2;
+      document.getElementById("selector").value = localStorage.previousOpp;
+    }
+  } else {
+      console.log ("Your browser does not support web storage...");
+  }
+}
 
 // CompletenessMeter Functions
 
