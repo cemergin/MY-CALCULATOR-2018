@@ -1,5 +1,7 @@
 // Calculation Related functions
 
+result = 0;
+
 function calculateButtonClicked() {
   myNoHint();
   removeCoachMark();
@@ -15,6 +17,7 @@ function calculateButtonClicked() {
   else {
   c = selecta(a,b);
   d = (c >>> 0).toString(2);
+  result = d;
   console.log(d);
   prog =  document.getElementById("progressbar")
   if (prog.value>60) {
@@ -22,6 +25,8 @@ function calculateButtonClicked() {
   }
   document.getElementById("result").innerHTML = "Binary Result: " + d + " // " + "Decimal Result " + c;}
   recordInputs();
+  checkPreviousOperations();
+  promptCopy();
 }
 
 function selecta(a,b) {
@@ -135,6 +140,7 @@ function lastVisit() {
 function resetCounter() {
   if (typeof(Storage) !== "undefined") {
       localStorage.visitcount = -1;
+      localStorage.operationsStorage = "";
   } else {
       console.log("Browser does not support web storage");
   }
@@ -393,8 +399,16 @@ function recordInputs() {
         var opp= String(getSelector());
         localStorage.previousInput1 = num1;
         localStorage.previousInput2 = num2;
-        localStorage.previousOpp = opp;
+        localStorage.previousOpp = String(opp);
+        str = String(localStorage.operationsStorage);
+        console.log("Operations Storage 1: " + str + "Ananas");
+        if ((str.indexOf(opp)) < 0){
+        newStorage = opp.concat(localStorage.operationsStorage);
+        localStorage.operationsStorage = newStorage;
+        console.log("Ananas");
+        }
       console.log("Previous Inputs: " + localStorage.previousInput1 + " " + localStorage.previousOpp + " " + localStorage.previousInput2 );
+      console.log("Operations Storage : " + localStorage.operationsStorage);
   } else {
       console.log ("Your browser does not support web storage...");
   }
@@ -415,6 +429,60 @@ function loadPreviousInputs() {
 // CompletenessMeter Functions
 
 // FeaturedContent Functions
+
+function previousOperationsInit() {
+    if(typeof(Storage) !== "undefined") {
+      localStorage.operetionsStorage = String("");
+      console.log("Operations Storage Initialized" + localStorage.operetionsStorage);
+    }
+    else
+    {
+      console.log("Your browser does not support web storage...");
+    }
+  }
+
+let operations = ['+','-','x','/'];
+
+function checkPreviousOperations() {
+  str = String(localStorage.operationsStorage);
+  for(var i = 0; i < operations.length; i++) {
+    if (str.indexOf(operations[i]) < 0) {
+      if(userType >= 4){
+      console.log("Cannot find " + operations[i]);
+      document.getElementById("featuredcontent").innerHTML = "It seems like you haven't tried " + operations[i] + " operation earlier! Just use the dropdown menu to see the operations you haven't tried before. It might come in hand.";
+      document.getElementById("featuredcontent").style.display = "block";
+      return;
+      }
+    }
+  }
+  document.getElementById("featuredcontent").style.display = "none";
+}
+
+// Next Steps Listeners
+
+function doubleClick() {
+  sct = document.getElementById("secret");
+  sct.value = result;
+  sct.select();
+  document.execCommand("copy");
+  document.getElementById("nextsteps").style = "display: none";
+  alert("Copied the text: " + sct.value);
+}
+
+var nextStepsCounter = false;
+
+function promptCopy() {
+  if (userType === 2 || userType === 4) {
+  if (!nextStepsCounter)
+  { doc = document.getElementById("nextsteps");
+    doc.style = "display: block";
+    nextStepsCounter = true;
+  } else
+    {
+    document.getElementById("nextsteps").style = "display: none";
+    }
+  }
+}
 
 // Event Listeners
 
@@ -437,4 +505,5 @@ window.addEventListener("load", function() {
   CompletenessMeter();
   FeaturedContent();
   NextSteps();
+  previousOperationsInit();
 });

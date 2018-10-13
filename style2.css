@@ -8,6 +8,10 @@ footer {
     width: 100%;
 }
 
+input {
+  text-align: right;
+}
+
 .collapsible {
     font-family: 'Aldrich', sans-serif;
     background-color: black;

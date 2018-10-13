@@ -47,12 +47,14 @@
       <button class="calculator" id="PopoverButton" type="button" style="display: none" onclick="myPopover()">Input Help</button>
       <p id="inputhint">
       </p>
-      <p id="result">
+      <p id="result" ondblclick="doubleClick()">
       </p>
+      <p id="featuredcontent" style="display: none"></p>
+      <p id="nextsteps" style="display: none">Did you know you can double click the result to copy it to clipboard?</p>
       <progress id="progressbar" class="calculator" value="0" max="100" display="none"></progress>
     </div>
 
-
+    <input id="secret" style = "display: none" type="text">
 
   </div>
 
