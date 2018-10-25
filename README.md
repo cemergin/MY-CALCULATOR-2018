@@ -16,4 +16,4 @@ Persona Patterns:
 
 Default Values, Completeness Meter, Featured Content, Next Steps
 
-
+![Screenshot](https://github.com/cemergin/MY-CALCULATOR-2018/blob/master/Screenshot.png)
