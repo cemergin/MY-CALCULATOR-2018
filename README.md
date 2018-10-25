@@ -6,22 +6,14 @@ The goal of the project was to create an online binary calculator application th
 
 Focus Patterns:
 
-Hidden Information
-Expandable Inputs
-Overflow Menus
-Wizard
+Hidden Information, Expandable Inputs, Overflow Menus, Wizard
 
 Input Help Patterns:
 
-Popovers
-Input Hints
-Coach Marks
+Popovers, Input Hints, Coach Marks
 
 Persona Patterns:
 
-Default Values
-Completeness Meter
-Featured Content
-Next Steps
+Default Values, Completeness Meter, Featured Content, Next Steps
 
 
